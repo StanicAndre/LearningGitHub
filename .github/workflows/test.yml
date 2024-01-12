@@ -1,6 +1,8 @@
 name: dispatch receiver
 
-on: [repository_dispatch]
+on:
+  repository_dispatch:
+    types: [test_dispatch]
 
 jobs:
   build:
@@ -8,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: dispatch trigger
-      if: github.event.action == "test_dispatch"
+#      if: github.event.action == "test_dispatch"
       run: |
         echo "repository_dispatch triggered"
